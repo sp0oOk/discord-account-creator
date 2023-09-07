@@ -1,12 +1,12 @@
-use util::sms::{Country, Service};
+use util::captcha;
 
 mod util;
 mod consts;
 
 fn main() {
 
-    match util::sms::request_phone_number(consts::SMS_MAN_TOKEN, Country::Afghanistan, Service::Discord) {
-        Ok(phone_number) => println!("{:?}", phone_number),
+    match captcha::get_balance(consts::CAPMONSTER_TOKEN) {
+        Ok(balance) => println!("{:?}", balance),
         Err(error) => println!("{:?}", error),
     }
 
